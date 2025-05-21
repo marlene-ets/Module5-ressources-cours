@@ -13,7 +13,7 @@ nb_pas = 500
 tic = perf_counter()
 marcheur_aleatoire(nb_pas)
 toc = perf_counter()
-print(f"Temps d'execution: {toc-tic} [s]")
+print(f"Temps d'execution: {1000.*(toc-tic)} [ms]")
 
 # Evaluation du temps d'execution de 500 pas du marcheur
 # Moyenne de 100 execution
@@ -24,7 +24,7 @@ for repet in range(nb_repetition):
     marcheur_aleatoire(nb_pas)
     toc = perf_counter()
     total_time += toc-tic
-print(f"Temps d'execution moyen: {total_time/nb_repetition} [s]")
+print(f"Temps d'execution moyen: {1000.*(total_time/nb_repetition)} [ms]")
 
 # Evaluation du temps d'execution de 500 pas du marcheur
 # Moyenne de 100 execution avec timeit
@@ -32,4 +32,4 @@ from timeit import timeit
 total_time = timeit(f'marcheur_aleatoire({nb_pas})',
                     globals=globals(),  # cet argument permet de transférer les variables connues dans le script
                     number=nb_repetition)
-print(f"Temps d'execution moyen avec timeit: {total_time/nb_repetition} [s]")
+print(f"Temps d'execution moyen avec timeit: {1000.*(total_time/nb_repetition)} [ms]")
