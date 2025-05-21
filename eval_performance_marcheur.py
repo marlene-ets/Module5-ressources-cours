@@ -1,3 +1,9 @@
+"""
+Ce script évalue la performance d'une fonction ici marcheur_aleatoire
+Marlene Sanjose
+MGA802 - Module 5
+"""
+# Chargement des fonctions necessaires pour le marcheur aleatoire et son évaluation de performance
 from marcheur import marcheur_aleatoire
 from time import perf_counter
 
@@ -23,5 +29,7 @@ print(f"Temps d'execution moyen: {total_time/nb_repetition} [s]")
 # Evaluation du temps d'execution de 500 pas du marcheur
 # Moyenne de 100 execution avec timeit
 from timeit import timeit
-total_time = timeit(f'marcheur_aleatoire({nb_pas})', globals=globals(), number=nb_repetition)
+total_time = timeit(f'marcheur_aleatoire({nb_pas})',
+                    globals=globals(),  # cet argument permet de transférer les variables connues dans le script
+                    number=nb_repetition)
 print(f"Temps d'execution moyen avec timeit: {total_time/nb_repetition} [s]")
